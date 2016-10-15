@@ -1,4 +1,4 @@
-# Euro
+# PSR Log Test Doubles
 
 [![Build Status](https://secure.travis-ci.org/wmde/PsrLogTestDoubles.png?branch=master)](http://travis-ci.org/wmde/PsrLogTestDoubles)
 [![Latest Stable Version](https://poser.pugx.org/wmde/psr-log-test-doubles/version.png)](https://packagist.org/packages/wmde/psr-log-test-doubles)
