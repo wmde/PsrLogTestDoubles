@@ -3,6 +3,22 @@
 	"description": "Test Doubles for the PSR-3 Logger Interface",
 	"homepage": "https://github.com/wmde/PsrLogTestDoubles",
 	"license": "GPL-2.0+",
+	"keywords": [
+		"log",
+		"psr",
+		"psr-3",
+		"test doubles",
+		"test double",
+		"spies",
+		"spy",
+		"logger spy",
+		"LoggerSpy",
+		"fixtures",
+		"fixture",
+		"mocks",
+		"mock",
+		"test"
+	],
 	"require": {
 		"php": ">=7.0",
 		"psr/log": "~1.0"
