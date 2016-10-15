@@ -1,0 +1,9 @@
+*~
+!.*
+
+composer.phar
+
+vendor/
+
+.idea/
+
