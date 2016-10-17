@@ -3,7 +3,7 @@
 	- https://github.com/squizlabs/PHP_CodeSniffer/wiki/Annotated-ruleset.xml
 	- https://github.com/squizlabs/PHP_CodeSniffer/tree/master/CodeSniffer/Standards
 -->
-<ruleset name="FunFunFundraisingFrontend">
+<ruleset name="PsrLogTestDoubles">
     <rule ref="vendor/mediawiki/mediawiki-codesniffer/MediaWiki/Sniffs/WhiteSpace">
         <exclude name="vendor/mediawiki/mediawiki-codesniffer/MediaWiki/Sniffs/WhiteSpace/SpaceBeforeSingleLineCommentSniff.php" />
     </rule>
