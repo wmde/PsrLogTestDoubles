@@ -8,9 +8,9 @@
 
 ## Release notes
 
-### 1.0.0 (dev)
+### 1.0.0 (2016-10-18)
 
-* Initial release
+* Initial release with minimal `LoggerSpy`
 
 [doubles]: https://en.wikipedia.org/wiki/Test_double
 [psr-3]: https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-3-logger-interface.md
