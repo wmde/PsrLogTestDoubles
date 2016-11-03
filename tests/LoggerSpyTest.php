@@ -5,6 +5,7 @@ declare( strict_types = 1 );
 namespace WMDE\PsrLogTestDoubles\Tests;
 
 use Psr\Log\LogLevel;
+use WMDE\PsrLogTestDoubles\AssertionException;
 use WMDE\PsrLogTestDoubles\LoggerSpy;
 
 /**
@@ -65,6 +66,22 @@ class LoggerSpyTest extends \PHPUnit_Framework_TestCase {
 			],
 			$loggerSpy->getLogCalls()
 		);
+	}
+
+	public function testWhenLoggerWasCalled_assertNoCallsThrowsException() {
+		$loggerSpy = new LoggerSpy();
+		$loggerSpy->alert( "There's a hole in your mind" );
+
+		$this->expectException( AssertionException::class );
+		$loggerSpy->assertNoLoggingCallsWhereMade();
+	}
+
+	public function testWhenLoggerWasNotCalled_assertNoCallsDoesNotThrowException() {
+		$loggerSpy = new LoggerSpy();
+
+		$loggerSpy->assertNoLoggingCallsWhereMade();
+
+		$this->assertTrue( true );
 	}
 
 }
