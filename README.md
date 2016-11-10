@@ -8,6 +8,10 @@
 
 ## Release notes
 
+### 1.1.0 (dev)
+
+* Added `LoggerSpy::assertNoLoggingCallsWhereMade`
+
 ### 1.0.0 (2016-10-18)
 
 * Initial release with minimal `LoggerSpy`

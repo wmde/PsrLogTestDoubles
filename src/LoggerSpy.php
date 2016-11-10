@@ -14,6 +14,9 @@ class LoggerSpy extends AbstractLogger {
 
 	private $logCalls = [];
 
+	/**
+	 * @since 1.0
+	 */
 	public function log( $level, $message, array $context = [] ) {
 		$this->logCalls[] = [
 			'level' => $level,
@@ -22,10 +25,17 @@ class LoggerSpy extends AbstractLogger {
 		];
 	}
 
+	/**
+	 * @since 1.0
+	 */
 	public function getLogCalls(): array {
 		return $this->logCalls;
 	}
 
+	/**
+	 * @since 1.1
+	 * @throws AssertionException
+	 */
 	public function assertNoLoggingCallsWhereMade() {
 		if ( !empty( $this->logCalls ) ) {
 			throw new AssertionException(
