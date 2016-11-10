@@ -8,6 +8,10 @@
 
 ## Release notes
 
+### 1.2.0 (dev)
+
+* Added `LoggerSpy::getLogMessages`
+
 ### 1.1.0 (2016-11-11)
 
 * Added `LoggerSpy::assertNoLoggingCallsWhereMade`

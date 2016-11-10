@@ -44,4 +44,17 @@ class LoggerSpy extends AbstractLogger {
 		}
 	}
 
+	/**
+	 * @since 1.2
+	 * @return string[]
+	 */
+	public function getLogMessages(): array {
+		return array_map(
+			function( array $logCall ) {
+				return $logCall['message'];
+			},
+			$this->logCalls
+		);
+	}
+
 }
