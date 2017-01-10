@@ -84,4 +84,27 @@ class LoggerSpyTest extends \PHPUnit_Framework_TestCase {
 		$this->assertTrue( true );
 	}
 
+	public function testWhenNothingIsLogged_getLogMessagesReturnsEmptyArray() {
+		$loggerSpy = new LoggerSpy();
+
+		$this->assertSame( [], $loggerSpy->getLogMessages() );
+	}
+
+	public function testWhenMultipleThingsAreLogged_getLogMessagesReturnsAllMessages() {
+		$loggerSpy = new LoggerSpy();
+
+		$loggerSpy->log( LogLevel::INFO, 'And so it begins' );
+		$loggerSpy->log( LogLevel::ALERT, "There's a hole in your mind" );
+		$loggerSpy->log( LogLevel::INFO, 'And so it begins' );
+
+		$this->assertSame(
+			[
+				'And so it begins',
+				"There's a hole in your mind",
+				'And so it begins'
+			],
+			$loggerSpy->getLogMessages()
+		);
+	}
+
 }
