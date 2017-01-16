@@ -8,7 +8,7 @@
 
 ## Release notes
 
-### 2.0.0 (dev)
+### 2.0.0 (2017-01-16)
 
 * `LoggerSpy::getLogCalls` now returns an instance of `LogCalls`, which is a collection of `LogCall`
 * Added `LogCalls::getMessages`
