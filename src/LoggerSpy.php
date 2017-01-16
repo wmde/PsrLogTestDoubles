@@ -18,18 +18,14 @@ class LoggerSpy extends AbstractLogger {
 	 * @since 1.0
 	 */
 	public function log( $level, $message, array $context = [] ) {
-		$this->logCalls[] = [
-			'level' => $level,
-			'message' => $message,
-			'context' => $context
-		];
+		$this->logCalls[] = new LogCall( $level, $message, $context );
 	}
 
 	/**
-	 * @since 1.0
+	 * @since 2.0
 	 */
-	public function getLogCalls(): array {
-		return $this->logCalls;
+	public function getLogCalls(): LogCalls {
+		return new LogCalls( ...$this->logCalls );
 	}
 
 	/**
@@ -42,19 +38,6 @@ class LoggerSpy extends AbstractLogger {
 				'Logger calls where made while non where expected: ' . var_export( $this->logCalls, true )
 			);
 		}
-	}
-
-	/**
-	 * @since 1.2
-	 * @return string[]
-	 */
-	public function getLogMessages(): array {
-		return array_map(
-			function( array $logCall ) {
-				return $logCall['message'];
-			},
-			$this->logCalls
-		);
 	}
 
 }

@@ -6,6 +6,8 @@ namespace WMDE\PsrLogTestDoubles\Tests;
 
 use Psr\Log\LogLevel;
 use WMDE\PsrLogTestDoubles\AssertionException;
+use WMDE\PsrLogTestDoubles\LogCall;
+use WMDE\PsrLogTestDoubles\LogCalls;
 use WMDE\PsrLogTestDoubles\LoggerSpy;
 
 /**
@@ -19,7 +21,7 @@ class LoggerSpyTest extends \PHPUnit_Framework_TestCase {
 	public function testWhenNothingIsLogged_getLogCallsReturnsEmptyArray() {
 		$loggerSpy = new LoggerSpy();
 
-		$this->assertSame( [], $loggerSpy->getLogCalls() );
+		$this->assertEquals( new LogCalls(), $loggerSpy->getLogCalls() );
 	}
 
 	public function testWhenLogIsCalled_getLogCallsReturnsAllCalls() {
@@ -28,19 +30,11 @@ class LoggerSpyTest extends \PHPUnit_Framework_TestCase {
 		$loggerSpy->log( LogLevel::INFO, 'And so it begins', [ 'year' => 2258 ] );
 		$loggerSpy->log( LogLevel::ALERT, "There's a hole in your mind" );
 
-		$this->assertSame(
-			[
-				[
-					'level' => LogLevel::INFO,
-					'message' => 'And so it begins',
-					'context' => [ 'year' => 2258 ]
-				],
-				[
-					'level' => LogLevel::ALERT,
-					'message' => "There's a hole in your mind",
-					'context' => []
-				]
-			],
+		$this->assertEquals(
+			new LogCalls(
+				new LogCall( LogLevel::INFO, 'And so it begins', [ 'year' => 2258 ] ),
+				new LogCall( LogLevel::ALERT, "There's a hole in your mind" )
+			),
 			$loggerSpy->getLogCalls()
 		);
 	}
@@ -51,19 +45,11 @@ class LoggerSpyTest extends \PHPUnit_Framework_TestCase {
 		$loggerSpy->info( 'And so it begins', [ 'year' => 2258 ] );
 		$loggerSpy->alert( "There's a hole in your mind" );
 
-		$this->assertSame(
-			[
-				[
-					'level' => LogLevel::INFO,
-					'message' => 'And so it begins',
-					'context' => [ 'year' => 2258 ]
-				],
-				[
-					'level' => LogLevel::ALERT,
-					'message' => "There's a hole in your mind",
-					'context' => []
-				]
-			],
+		$this->assertEquals(
+			new LogCalls(
+				new LogCall( LogLevel::INFO, 'And so it begins', [ 'year' => 2258 ] ),
+				new LogCall( LogLevel::ALERT, "There's a hole in your mind" )
+			),
 			$loggerSpy->getLogCalls()
 		);
 	}
@@ -82,29 +68,6 @@ class LoggerSpyTest extends \PHPUnit_Framework_TestCase {
 		$loggerSpy->assertNoLoggingCallsWhereMade();
 
 		$this->assertTrue( true );
-	}
-
-	public function testWhenNothingIsLogged_getLogMessagesReturnsEmptyArray() {
-		$loggerSpy = new LoggerSpy();
-
-		$this->assertSame( [], $loggerSpy->getLogMessages() );
-	}
-
-	public function testWhenMultipleThingsAreLogged_getLogMessagesReturnsAllMessages() {
-		$loggerSpy = new LoggerSpy();
-
-		$loggerSpy->log( LogLevel::INFO, 'And so it begins' );
-		$loggerSpy->log( LogLevel::ALERT, "There's a hole in your mind" );
-		$loggerSpy->log( LogLevel::INFO, 'And so it begins' );
-
-		$this->assertSame(
-			[
-				'And so it begins',
-				"There's a hole in your mind",
-				'And so it begins'
-			],
-			$loggerSpy->getLogMessages()
-		);
 	}
 
 }
