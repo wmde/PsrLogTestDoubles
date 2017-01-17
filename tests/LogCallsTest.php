@@ -59,4 +59,14 @@ class LogCallsTest extends \PHPUnit_Framework_TestCase {
 		$this->assertSame( [ 'year' => 2258 ], $logCalls->getFirstCall()->getContext() );
 	}
 
+	public function testImplementsCountable() {
+		$logCalls = new LogCalls(
+			new LogCall( LogLevel::INFO, 'And so it begins', [ 'year' => 2258 ] ),
+			new LogCall( LogLevel::ALERT, "There's a hole in your mind" ),
+			new LogCall( LogLevel::INFO, 'And so it begins' )
+		);
+
+		$this->assertCount( 3, $logCalls );
+	}
+
 }

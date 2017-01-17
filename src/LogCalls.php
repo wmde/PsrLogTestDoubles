@@ -12,7 +12,7 @@ namespace WMDE\PsrLogTestDoubles;
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class LogCalls implements \IteratorAggregate {
+class LogCalls implements \IteratorAggregate, \Countable {
 
 	private $calls;
 
@@ -44,6 +44,14 @@ class LogCalls implements \IteratorAggregate {
 	 */
 	public function getFirstCall() {
 		return empty( $this->calls ) ? null : $this->calls[0];
+	}
+
+	/**
+	 * @since 2.1
+	 * @return int
+	 */
+	public function count() {
+		return count( $this->calls );
 	}
 
 }
