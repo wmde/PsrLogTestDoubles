@@ -9,7 +9,7 @@
 ## Motivation
 
 In PHP world, most people create Test Doubles via PHPUnits mocking framework (`$this->createMock`).
-(Please beware that a [PHPUnit mock really is a Test Double](better-mocks) and not necessarily a mock.)
+(Please beware that a [PHPUnit mock really is a Test Double][better-mocks] and not necessarily a mock.)
 While this framework is often helpful, using it instead of creating your own Test Doubles comes with
 some cost:
 
@@ -23,6 +23,8 @@ provide a log level, or call a shortcut method such as `error`.
 ## Usage
 
 This library is unit testing tool agnostic. So while these examples use PHPUnit, any testing tool can be used.
+
+**Assert the logger is called twice with expected messages**
 
 ```php
 public function testWhenStuffIsDone_loggerGetsCalled() {
@@ -38,9 +40,13 @@ public function testWhenStuffIsDone_loggerGetsCalled() {
 }
 ```
 
+**Assert the logger is called twice**
+
 ```php
 $this->assertCount( 2, $logger->getLogCalls() );
 ```
+
+**Assert the message and log level of the first logger call**
 
 ```php
 $firstLogCall = $logger->getLogCalls()->getFirstCall();
