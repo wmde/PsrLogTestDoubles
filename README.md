@@ -33,7 +33,7 @@ public function testWhenStuffIsDone_loggerGetsCalled() {
     $serviceToTest = new ServiceToTest( $logger /*, other dependencies */ );
     $serviceToTest->doStuff( /**/ );
 
-    $this->assertCount(
+    $this->assertSame(
         [ 'First message', 'Second message' ],
         $logger->getLogCalls()->getMessages()
     );
