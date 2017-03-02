@@ -4,6 +4,7 @@ declare( strict_types = 1 );
 
 namespace WMDE\PsrLogTestDoubles\Tests;
 
+use PHPUnit\Framework\TestCase;
 use Psr\Log\LogLevel;
 use WMDE\PsrLogTestDoubles\AssertionException;
 use WMDE\PsrLogTestDoubles\LogCall;
@@ -16,7 +17,7 @@ use WMDE\PsrLogTestDoubles\LoggerSpy;
  * @license GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class LoggerSpyTest extends \PHPUnit_Framework_TestCase {
+class LoggerSpyTest extends TestCase {
 
 	public function testWhenNothingIsLogged_getLogCallsReturnsEmptyArray() {
 		$loggerSpy = new LoggerSpy();

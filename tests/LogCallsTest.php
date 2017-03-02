@@ -4,6 +4,7 @@ declare( strict_types = 1 );
 
 namespace WMDE\PsrLogTestDoubles\Tests;
 
+use PHPUnit\Framework\TestCase;
 use Psr\Log\LogLevel;
 use WMDE\PsrLogTestDoubles\LogCall;
 use WMDE\PsrLogTestDoubles\LogCalls;
@@ -14,7 +15,7 @@ use WMDE\PsrLogTestDoubles\LogCalls;
  * @license GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class LogCallsTest extends \PHPUnit_Framework_TestCase {
+class LogCallsTest extends TestCase {
 
 	public function testWhenThereAreNoLogCalls_getMessagesReturnsEmptyArray() {
 		$this->assertSame( [], ( new LogCalls() )->getMessages() );
