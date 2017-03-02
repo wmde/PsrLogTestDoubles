@@ -11,6 +11,7 @@ use WMDE\PsrLogTestDoubles\LogCalls;
 
 /**
  * @covers \WMDE\PsrLogTestDoubles\LogCalls
+ * @covers \WMDE\PsrLogTestDoubles\LogCall
  *
  * @license GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
