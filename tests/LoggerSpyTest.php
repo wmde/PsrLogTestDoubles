@@ -71,4 +71,19 @@ class LoggerSpyTest extends TestCase {
 		$this->assertTrue( true );
 	}
 
+	public function testWhenThereAreNoLogCalls_getFirstLogCallReturnsNull() {
+		$this->assertNull( ( new LoggerSpy() )->getFirstLogCall() );
+	}
+
+	public function testWhenMultipleThingsAreLogged_getFirstLogCallReturnsTheFirst() {
+		$loggerSpy = new LoggerSpy();
+
+		$loggerSpy->info( 'And so it begins', [ 'year' => 2258 ] );
+		$loggerSpy->alert( "There's a hole in your mind" );
+
+		$this->assertSame( LogLevel::INFO, $loggerSpy->getFirstLogCall()->getLevel() );
+		$this->assertSame( 'And so it begins', $loggerSpy->getFirstLogCall()->getMessage() );
+		$this->assertSame( [ 'year' => 2258 ], $loggerSpy->getFirstLogCall()->getContext() );
+	}
+
 }

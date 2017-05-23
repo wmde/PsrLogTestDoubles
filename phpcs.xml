@@ -93,6 +93,8 @@
         <properties>
             <property name="ignoreNewlines" value="true" />
         </properties>
+        <exclude name="Squiz.WhiteSpace.OperatorSpacing.NoSpaceBefore" />
+        <exclude name="Squiz.WhiteSpace.OperatorSpacing.NoSpaceAfter" />
     </rule>
 
     <rule ref="Squiz.WhiteSpace.ScopeClosingBrace" />
