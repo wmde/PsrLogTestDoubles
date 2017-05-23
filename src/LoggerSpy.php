@@ -29,6 +29,13 @@ class LoggerSpy extends AbstractLogger {
 	}
 
 	/**
+	 * @since 2.2
+	 */
+	public function getFirstLogCall(): ?LogCall {
+		return $this->getLogCalls()->getFirstCall();
+	}
+
+	/**
 	 * @since 1.1
 	 * @throws AssertionException
 	 */

@@ -59,6 +59,11 @@ $this->assertSame( LogLevel::ERROR, $firstLogCall->getLevel() );
 
 ## Release notes
 
+### 2.2.0 (2017-05-23)
+
+* Added `LoggerSpy::getFirstLogCall` convenience method
+* Changed minimum PHP version from PHP 7.0 to 7.1
+
 ### 2.1.0 (2017-01-17)
 
 * `LogCalls` now implements `Countable`
