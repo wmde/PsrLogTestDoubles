@@ -51,7 +51,7 @@ $this->assertCount( 2, $logger->getLogCalls() );
 **Assert the message and log level of the first logger call**
 
 ```php
-$firstLogCall = $logger->getLogCalls()->getFirstCall();
+$firstLogCall = $logger->getFirstLogCall();
 
 $this->assertSame( 'First message', $firstLogCall->getMessage() );
 $this->assertSame( LogLevel::ERROR, $firstLogCall->getLevel() );
