@@ -2,7 +2,7 @@
 	"name": "wmde/psr-log-test-doubles",
 	"description": "Test Doubles for the PSR-3 Logger Interface",
 	"homepage": "https://github.com/wmde/PsrLogTestDoubles",
-	"license": "GPL-2.0+",
+	"license": "GPL-2.0-or-later",
 	"keywords": [
 		"log",
 		"psr",
