@@ -23,6 +23,7 @@ class LogCalls implements \IteratorAggregate, \Countable {
 		$this->calls = $calls;
 	}
 
+    #[\ReturnTypeWillChange]
 	public function getIterator() {
 		return new \ArrayIterator( $this->calls );
 	}
@@ -43,6 +44,7 @@ class LogCalls implements \IteratorAggregate, \Countable {
 		return empty( $this->calls ) ? null : $this->calls[0];
 	}
 
+    #[\ReturnTypeWillChange]
 	/**
 	 * @since 2.1
 	 * @return int
