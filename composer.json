@@ -33,6 +33,11 @@
 			"WMDE\\PsrLogTestDoubles\\": "src/"
 		}
 	},
+	"autoload-dev": {
+		"psr-4": {
+			"WMDE\\PsrLogTestDoubles\\Tests\\": "tests/"
+		}
+	},
 	"extra": {
 		"branch-alias": {
 			"dev-master": "2.1.x-dev"
