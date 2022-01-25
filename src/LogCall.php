@@ -22,7 +22,7 @@ class LogCall {
 		$this->context = $context;
 	}
 
-	public function getLevel(): string {
+	public function getLevel(): mixed {
 		return $this->level;
 	}
 
