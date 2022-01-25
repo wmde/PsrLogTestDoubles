@@ -18,7 +18,7 @@ class LoggerSpy extends AbstractLogger {
 	private array $logCalls = [];
 
 	/**
-	 * @since 1.0
+	 * Signature changed in 3.0
 	 */
 	public function log( $level, string|\Stringable $message, array $context = [] ): void {
 		$this->logCalls[] = new LogCall( $level, (string)$message, $context );
