@@ -40,10 +40,14 @@ class LogCallsTest extends TestCase {
 	}
 
 	public function testCanUseCollectionAsTraversable() {
-		$logCalls = new LogCalls( new LogCall( LogLevel::INFO, 'And so it begins' ) );
-
-		$this->assertContains( new LogCall( LogLevel::INFO, 'And so it begins' ), $logCalls, '', false, false );
-		$this->assertNotContains( new LogCall( LogLevel::DEBUG, 'And so it begins' ), $logCalls, '', false, false );
+		$this->assertEquals(
+			[
+				new LogCall( LogLevel::INFO, 'And so it begins' )
+			],
+			iterator_to_array(
+				new LogCalls( new LogCall( LogLevel::INFO, 'And so it begins' ) )
+			)
+		);
 	}
 
 	public function testWhenThereAreNoLogCalls_getFirstCallReturnsNull() {
