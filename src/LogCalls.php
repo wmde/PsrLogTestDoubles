@@ -14,11 +14,11 @@ namespace WMDE\PsrLogTestDoubles;
  */
 class LogCalls implements \IteratorAggregate, \Countable {
 
-	private $calls;
-
 	/**
-	 * @param LogCall[] $calls
+	 * @var LogCall[]
 	 */
+	private array $calls;
+
 	public function __construct( LogCall... $calls ) {
 		$this->calls = $calls;
 	}
@@ -47,7 +47,7 @@ class LogCalls implements \IteratorAggregate, \Countable {
 	 * @since 2.1
 	 * @return int
 	 */
-	public function count() {
+	public function count(): int {
 		return count( $this->calls );
 	}
 

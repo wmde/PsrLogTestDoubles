@@ -12,25 +12,17 @@ namespace WMDE\PsrLogTestDoubles;
  */
 class LogCall {
 
-	private $level;
-	private $message;
-	private $context;
+	private mixed $level;
+	private string $message;
+	private array $context;
 
-	/**
-	 * @param mixed $level Typically one of the @see LogLevel constants
-	 * @param string $message
-	 * @param array $context
-	 */
-	public function __construct( $level, string $message, array $context = [] ) {
+	public function __construct( mixed $level, string $message, array $context = [] ) {
 		$this->level = $level;
 		$this->message = $message;
 		$this->context = $context;
 	}
 
-	/**
-	 * @return mixed Typically one of the @see LogLevel constants
-	 */
-	public function getLevel() {
+	public function getLevel(): string {
 		return $this->level;
 	}
 
