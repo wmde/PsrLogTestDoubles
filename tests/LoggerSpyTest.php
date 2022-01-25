@@ -40,7 +40,7 @@ class LoggerSpyTest extends TestCase {
 		);
 	}
 
-	public function testWhenShotcutMethodsAreCalled_getLogCallsReturnsAllCalls(): void {
+	public function testWhenShortcutMethodsAreCalled_getLogCallsReturnsAllCalls(): void {
 		$loggerSpy = new LoggerSpy();
 
 		$loggerSpy->info( 'And so it begins', [ 'year' => 2258 ] );
