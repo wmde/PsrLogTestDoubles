@@ -19,13 +19,13 @@ use WMDE\PsrLogTestDoubles\LoggerSpy;
  */
 class LoggerSpyTest extends TestCase {
 
-	public function testWhenNothingIsLogged_getLogCallsReturnsEmptyArray() {
+	public function testWhenNothingIsLogged_getLogCallsReturnsEmptyArray(): void {
 		$loggerSpy = new LoggerSpy();
 
 		$this->assertEquals( new LogCalls(), $loggerSpy->getLogCalls() );
 	}
 
-	public function testWhenLogIsCalled_getLogCallsReturnsAllCalls() {
+	public function testWhenLogIsCalled_getLogCallsReturnsAllCalls(): void {
 		$loggerSpy = new LoggerSpy();
 
 		$loggerSpy->log( LogLevel::INFO, 'And so it begins', [ 'year' => 2258 ] );
@@ -40,7 +40,7 @@ class LoggerSpyTest extends TestCase {
 		);
 	}
 
-	public function testWhenShotcutMethodsAreCalled_getLogCallsReturnsAllCalls() {
+	public function testWhenShotcutMethodsAreCalled_getLogCallsReturnsAllCalls(): void {
 		$loggerSpy = new LoggerSpy();
 
 		$loggerSpy->info( 'And so it begins', [ 'year' => 2258 ] );
@@ -55,7 +55,7 @@ class LoggerSpyTest extends TestCase {
 		);
 	}
 
-	public function testWhenLoggerWasCalled_assertNoCallsThrowsException() {
+	public function testWhenLoggerWasCalled_assertNoCallsThrowsException(): void {
 		$loggerSpy = new LoggerSpy();
 		$loggerSpy->alert( "There's a hole in your mind" );
 
@@ -63,7 +63,7 @@ class LoggerSpyTest extends TestCase {
 		$loggerSpy->assertNoLoggingCallsWhereMade();
 	}
 
-	public function testWhenLoggerWasNotCalled_assertNoCallsDoesNotThrowException() {
+	public function testWhenLoggerWasNotCalled_assertNoCallsDoesNotThrowException(): void {
 		$loggerSpy = new LoggerSpy();
 
 		$loggerSpy->assertNoLoggingCallsWhereMade();
@@ -75,7 +75,7 @@ class LoggerSpyTest extends TestCase {
 		$this->assertNull( ( new LoggerSpy() )->getFirstLogCall() );
 	}
 
-	public function testWhenMultipleThingsAreLogged_getFirstLogCallReturnsTheFirst() {
+	public function testWhenMultipleThingsAreLogged_getFirstLogCallReturnsTheFirst(): void {
 		$loggerSpy = new LoggerSpy();
 
 		$loggerSpy->info( 'And so it begins', [ 'year' => 2258 ] );
