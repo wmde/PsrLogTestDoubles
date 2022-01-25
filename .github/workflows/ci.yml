@@ -88,4 +88,4 @@ jobs:
         run: php vendor/bin/psalm --threads=2 --output-format=github --shepherd --stats --set-baseline=psalm-baseline.xml
 
       - name: PHPStan
-        run: php vendor/bin/phpstan analyse --error-format=checkstyle --no-progress src/ tests/ | cs2pr
+        run: php vendor/bin/phpstan -c phpstan.neon analyse --error-format=checkstyle --no-progress src/ tests/ | cs2pr
