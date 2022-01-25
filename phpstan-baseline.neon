@@ -1,0 +1,7 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^PHPDoc tag @param for parameter \\$calls with type array\\<WMDE\\\\PsrLogTestDoubles\\\\LogCall\\> is incompatible with native type WMDE\\\\PsrLogTestDoubles\\\\LogCall\\.$#"
+			count: 1
+			path: src/LogCalls.php
+
