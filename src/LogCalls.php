@@ -40,7 +40,14 @@ class LogCalls implements \IteratorAggregate, \Countable {
 	}
 
 	public function getFirstCall(): ?LogCall {
-		return empty( $this->calls ) ? null : $this->calls[0];
+		return $this->calls[0] ?? null;
+	}
+
+	/**
+	 * @since 3.1
+	 */
+	public function getLastCall(): ?LogCall {
+		return $this->calls[count( $this->calls ) - 1] ?? null;
 	}
 
 	/**

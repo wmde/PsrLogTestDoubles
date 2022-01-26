@@ -75,4 +75,20 @@ class LogCallsTest extends TestCase {
 		$this->assertCount( 3, $logCalls );
 	}
 
+	public function testGetLastCallReturnsLastCall(): void {
+		$logCalls = new LogCalls(
+			new LogCall( LogLevel::INFO, 'And so it begins', [ 'year' => 2258 ] ),
+			new LogCall( LogLevel::ALERT, "There's a hole in your mind" )
+		);
+
+		$this->assertSame(
+			"There's a hole in your mind",
+			$logCalls->getLastCall()->getMessage()
+		);
+	}
+
+	public function testWhenThereAreNoLogCalls_getLastCallReturnsNull(): void {
+		$this->assertNull( ( new LogCalls() )->getLastCall() );
+	}
+
 }
