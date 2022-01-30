@@ -3,6 +3,13 @@
 	"description": "Test Doubles for the PSR-3 Logger Interface",
 	"homepage": "https://github.com/wmde/PsrLogTestDoubles",
 	"license": "GPL-2.0-or-later",
+	"authors": [
+		{
+			"name": "Jeroen De Dauw",
+			"email": "jeroendedauw@gmail.com",
+			"homepage": "https://www.EntropyWins.wtf"
+		}
+	],
 	"keywords": [
 		"log",
 		"psr",
