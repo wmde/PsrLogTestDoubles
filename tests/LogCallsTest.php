@@ -91,4 +91,68 @@ class LogCallsTest extends TestCase {
 		$this->assertNull( ( new LogCalls() )->getLastCall() );
 	}
 
+	public function testFilter(): void {
+		$logCalls = new LogCalls(
+			new LogCall( LogLevel::INFO, 'And so it begins', [ 'year' => 2258 ] ),
+			new LogCall( LogLevel::ALERT, "There's a hole in your mind" ),
+			new LogCall( LogLevel::INFO, 'And so it begins' ),
+			new LogCall( LogLevel::CRITICAL, 'Enemy sighted' ),
+		);
+
+		$this->assertEquals(
+			new LogCalls(
+				new LogCall( LogLevel::INFO, 'And so it begins', [ 'year' => 2258 ] ),
+				new LogCall( LogLevel::INFO, 'And so it begins' ),
+			),
+			$logCalls->filter( fn( LogCall $call ) => $call->getLevel() === LogLevel::INFO )
+		);
+	}
+
+	public function testGetErrors(): void {
+		$logCalls = new LogCalls(
+			new LogCall( LogLevel::INFO, 'And so it begins', [ 'year' => 2258 ] ),
+			new LogCall( LogLevel::ALERT, "There's a hole in your mind" ),
+			new LogCall( LogLevel::INFO, 'And so it begins' ),
+			new LogCall( LogLevel::CRITICAL, 'Enemy sighted' ),
+		);
+
+		$this->assertEquals(
+			new LogCalls(
+				new LogCall( LogLevel::ALERT, "There's a hole in your mind" ),
+				new LogCall( LogLevel::CRITICAL, 'Enemy sighted' ),
+			),
+			$logCalls->getErrors()
+		);
+	}
+
+	public function testMap(): void {
+		$logCalls = new LogCalls(
+			new LogCall( LogLevel::INFO, 'And so it begins', [ 'year' => 2258 ] ),
+			new LogCall( LogLevel::ALERT, "There's a hole in your mind", [ 'year' => 2260 ] ),
+		);
+
+		$this->assertEquals(
+			new LogCalls(
+				new LogCall( LogLevel::INFO, 'And so it begins' ),
+				new LogCall( LogLevel::ALERT, "There's a hole in your mind" ),
+			),
+			$logCalls->map( fn( LogCall $call ) => $call->withoutContext() )
+		);
+	}
+
+	public function testWithoutContexts(): void {
+		$logCalls = new LogCalls(
+			new LogCall( LogLevel::INFO, 'And so it begins', [ 'year' => 2258 ] ),
+			new LogCall( LogLevel::ALERT, "There's a hole in your mind", [ 'year' => 2260 ] ),
+		);
+
+		$this->assertEquals(
+			new LogCalls(
+				new LogCall( LogLevel::INFO, 'And so it begins' ),
+				new LogCall( LogLevel::ALERT, "There's a hole in your mind" ),
+			),
+			$logCalls->withoutContexts()
+		);
+	}
+
 }

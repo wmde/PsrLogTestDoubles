@@ -59,6 +59,15 @@ $this->assertSame( LogLevel::ERROR, $firstLogCall->getLevel() );
 
 ## Release notes
 
+### 3.2.0 (2022-03-28)
+
+* Added `LogCall::isError`
+* Added `LogCall::withoutContext`
+* Added `LogCalls::filter`
+* Added `LogCalls::getErrors`
+* Added `LogCalls::map`
+* Added `LogCalls::withoutContexts`
+
 ### 3.1.0 (2022-01-26)
 
 * Added `LogCalls::getLastCall`
