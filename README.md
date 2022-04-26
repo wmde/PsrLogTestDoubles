@@ -1,8 +1,9 @@
 # PSR Log Test Doubles
 
-[![Build Status](https://secure.travis-ci.org/wmde/PsrLogTestDoubles.png?branch=master)](http://travis-ci.org/wmde/PsrLogTestDoubles)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/wmde/PsrLogTestDoubles/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/wmde/PsrLogTestDoubles/?branch=master)
-[![Code Coverage](https://scrutinizer-ci.com/g/wmde/PsrLogTestDoubles/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/wmde/PsrLogTestDoubles/?branch=master)
+[![Build Status](https://img.shields.io/github/workflow/status/wmde/PsrLogTestDoubles/CI)](https://github.com/wmde/PsrLogTestDoubles/actions?query=workflow%3ACI)
+[![codecov](https://codecov.io/gh/wmde/PsrLogTestDoubles/branch/master/graph/badge.svg)](https://codecov.io/gh/wmde/PsrLogTestDoubles)
+[![Type Coverage](https://shepherd.dev/github/wmde/PsrLogTestDoubles/coverage.svg)](https://shepherd.dev/github/wmde/PsrLogTestDoubles)
+[![Psalm level](https://shepherd.dev/github/wmde/PsrLogTestDoubles/level.svg)](psalm.xml)
 [![Latest Stable Version](https://poser.pugx.org/wmde/psr-log-test-doubles/version.png)](https://packagist.org/packages/wmde/psr-log-test-doubles)
 [![Download count](https://poser.pugx.org/wmde/psr-log-test-doubles/d/total.png)](https://packagist.org/packages/wmde/psr-log-test-doubles)
 
