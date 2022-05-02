@@ -4,6 +4,8 @@ declare( strict_types = 1 );
 
 namespace WMDE\PsrLogTestDoubles;
 
+use Psr\Log\LogLevel;
+
 /**
  * Value object representing a call to the logger
  *
@@ -12,25 +14,19 @@ namespace WMDE\PsrLogTestDoubles;
  */
 class LogCall {
 
-	private $level;
-	private $message;
-	private $context;
+	private const ERROR_LEVELS = [ LogLevel::ERROR, LogLevel::CRITICAL, LogLevel::ALERT, LogLevel::EMERGENCY ];
 
-	/**
-	 * @param mixed $level Typically one of the @see LogLevel constants
-	 * @param string $message
-	 * @param array $context
-	 */
-	public function __construct( $level, string $message, array $context = [] ) {
+	private mixed $level;
+	private string $message;
+	private array $context;
+
+	public function __construct( mixed $level, string $message, array $context = [] ) {
 		$this->level = $level;
 		$this->message = $message;
 		$this->context = $context;
 	}
 
-	/**
-	 * @return mixed Typically one of the @see LogLevel constants
-	 */
-	public function getLevel() {
+	public function getLevel(): mixed {
 		return $this->level;
 	}
 
@@ -40,6 +36,21 @@ class LogCall {
 
 	public function getContext(): array {
 		return $this->context;
+	}
+
+	/**
+	 * Returns if the log level is error or above.
+	 * @since 3.2
+	 */
+	public function isError(): bool {
+		return in_array( $this->level, self::ERROR_LEVELS );
+	}
+
+	/**
+	 * @since 3.2
+	 */
+	public function withoutContext(): self {
+		return new self( $this->level, $this->message, [] );
 	}
 
 }

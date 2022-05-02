@@ -12,13 +12,16 @@ use Psr\Log\AbstractLogger;
  */
 class LoggerSpy extends AbstractLogger {
 
-	private $logCalls = [];
+	/**
+	 * @var array<int, LogCall>
+	 */
+	private array $logCalls = [];
 
 	/**
-	 * @since 1.0
+	 * Signature changed in 3.0
 	 */
-	public function log( $level, $message, array $context = [] ) {
-		$this->logCalls[] = new LogCall( $level, $message, $context );
+	public function log( $level, string|\Stringable $message, array $context = [] ): void {
+		$this->logCalls[] = new LogCall( $level, (string)$message, $context );
 	}
 
 	/**
@@ -39,7 +42,7 @@ class LoggerSpy extends AbstractLogger {
 	 * @since 1.1
 	 * @throws AssertionException
 	 */
-	public function assertNoLoggingCallsWhereMade() {
+	public function assertNoLoggingCallsWhereMade(): void {
 		if ( !empty( $this->logCalls ) ) {
 			throw new AssertionException(
 				'Logger calls where made while non where expected: ' . var_export( $this->logCalls, true )

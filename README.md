@@ -1,8 +1,9 @@
 # PSR Log Test Doubles
 
-[![Build Status](https://secure.travis-ci.org/wmde/PsrLogTestDoubles.png?branch=master)](http://travis-ci.org/wmde/PsrLogTestDoubles)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/wmde/PsrLogTestDoubles/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/wmde/PsrLogTestDoubles/?branch=master)
-[![Code Coverage](https://scrutinizer-ci.com/g/wmde/PsrLogTestDoubles/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/wmde/PsrLogTestDoubles/?branch=master)
+[![Build Status](https://img.shields.io/github/workflow/status/wmde/PsrLogTestDoubles/CI)](https://github.com/wmde/PsrLogTestDoubles/actions?query=workflow%3ACI)
+[![codecov](https://codecov.io/gh/wmde/PsrLogTestDoubles/branch/master/graph/badge.svg)](https://codecov.io/gh/wmde/PsrLogTestDoubles)
+[![Type Coverage](https://shepherd.dev/github/wmde/PsrLogTestDoubles/coverage.svg)](https://shepherd.dev/github/wmde/PsrLogTestDoubles)
+[![Psalm level](https://shepherd.dev/github/wmde/PsrLogTestDoubles/level.svg)](psalm.xml)
 [![Latest Stable Version](https://poser.pugx.org/wmde/psr-log-test-doubles/version.png)](https://packagist.org/packages/wmde/psr-log-test-doubles)
 [![Download count](https://poser.pugx.org/wmde/psr-log-test-doubles/d/total.png)](https://packagist.org/packages/wmde/psr-log-test-doubles)
 
@@ -58,6 +59,26 @@ $this->assertSame( LogLevel::ERROR, $firstLogCall->getLevel() );
 ```
 
 ## Release notes
+
+### 3.2.0 (2022-03-28)
+
+* Added `LogCall::isError`
+* Added `LogCall::withoutContext`
+* Added `LogCalls::filter`
+* Added `LogCalls::getErrors`
+* Added `LogCalls::map`
+* Added `LogCalls::withoutContexts`
+
+### 3.1.0 (2022-01-26)
+
+* Added `LogCalls::getLastCall`
+
+### 3.0.0 (2022-01-26)
+
+* Added support for `psr/log` 2.x and 3.x
+* Changed minimum PHP version from PHP 7.1 to 8.0
+* Added several property, parameter and return types
+* Added Psalm and PHPStan CI and compliance with level 1 checks
 
 ### 2.2.0 (2017-05-23)
 
