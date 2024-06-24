@@ -7,19 +7,17 @@ on:
 jobs:
   test:
     name: "PHPUnit PHP ${{ matrix.php }}"
-
     strategy:
       matrix:
-        php: [ 8.0, 8.1, rc ]
+        php: [ '8.2', '8.3' ]
         include:
-          - php: '8.0'
+          - php: '8.2'
             coverage: true
 
     runs-on: ubuntu-latest
 
     steps:
       - name: Setup PHP
-        if: matrix.coverage
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php }}
@@ -69,7 +67,7 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: 8.0
+          php-version: "${{ matrix.php }}"
           extensions: mbstring
           tools: composer, cs2pr
 
@@ -79,7 +77,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ~/.composer/cache
-          key: composer-cache-php8.0
+          key: "composer-cache-php${{ matrix.php }}"
 
       - name: Composer install
         run: composer install --no-progress --no-suggest --no-interaction --prefer-dist --optimize-autoloader
