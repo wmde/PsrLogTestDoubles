@@ -27,7 +27,7 @@
 		"test"
 	],
 	"require": {
-		"php": ">=8.0",
+		"php": ">=8.2",
 		"psr/log": "~3.0|~2.0"
 	},
 	"require-dev": {
