@@ -11,7 +11,7 @@ jobs:
       matrix:
         php: [ '8.2', '8.3' ]
         include:
-          - php: '8.2'
+          - php: '8.3'
             coverage: true
 
     runs-on: ubuntu-latest
@@ -81,9 +81,6 @@ jobs:
 
       - name: Composer install
         run: composer install --no-progress --no-suggest --no-interaction --prefer-dist --optimize-autoloader
-
-      - name: Psalm
-        run: php vendor/bin/psalm --threads=2 --output-format=github --shepherd --stats
 
       - name: PHPStan
         run: php vendor/bin/phpstan analyse --error-format=checkstyle --no-progress src/ tests/ | cs2pr

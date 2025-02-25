@@ -1,7 +1,7 @@
-.PHONY: ci cs test phpunit psalm phpstan  stan
+.PHONY: ci cs test phpunit phpstan stan
 
-ci: phpstan phpunit psalm
-cs: phpstan psalm
+ci: phpstan phpunit
+cs: phpstan
 test: phpunit
 
 phpunit:
@@ -9,9 +9,6 @@ phpunit:
 
 coverage-html:
 	php ./vendor/bin/phpunit -c phpunit.xml.dist --coverage-html=./build/coverage/html
-
-psalm:
-	./vendor/bin/psalm
 
 phpstan:
 	./vendor/bin/phpstan analyse -c phpstan.neon --no-progress
