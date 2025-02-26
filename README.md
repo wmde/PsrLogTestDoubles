@@ -3,7 +3,6 @@
 [![Build Status](https://img.shields.io/github/workflow/status/wmde/PsrLogTestDoubles/CI)](https://github.com/wmde/PsrLogTestDoubles/actions?query=workflow%3ACI)
 [![codecov](https://codecov.io/gh/wmde/PsrLogTestDoubles/branch/master/graph/badge.svg)](https://codecov.io/gh/wmde/PsrLogTestDoubles)
 [![Type Coverage](https://shepherd.dev/github/wmde/PsrLogTestDoubles/coverage.svg)](https://shepherd.dev/github/wmde/PsrLogTestDoubles)
-[![Psalm level](https://shepherd.dev/github/wmde/PsrLogTestDoubles/level.svg)](psalm.xml)
 [![Latest Stable Version](https://poser.pugx.org/wmde/psr-log-test-doubles/version.png)](https://packagist.org/packages/wmde/psr-log-test-doubles)
 [![Download count](https://poser.pugx.org/wmde/psr-log-test-doubles/d/total.png)](https://packagist.org/packages/wmde/psr-log-test-doubles)
 
