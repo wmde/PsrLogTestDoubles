@@ -6,20 +6,22 @@ namespace WMDE\PsrLogTestDoubles;
 
 use Psr\Log\LogLevel;
 
-/**
- * Value object representing a call to the logger
- *
- * @licence GNU GPL v2+
- * @author Jeroen De Dauw < jeroendedauw@gmail.com >
- */
 class LogCall {
 
 	private const ERROR_LEVELS = [ LogLevel::ERROR, LogLevel::CRITICAL, LogLevel::ALERT, LogLevel::EMERGENCY ];
 
 	private mixed $level;
 	private string $message;
+	/**
+	 * @var array<string, mixed>
+	 */
 	private array $context;
 
+	/**
+	 * @param mixed $level
+	 * @param string $message
+	 * @param array<string, mixed> $context
+	 */
 	public function __construct( mixed $level, string $message, array $context = [] ) {
 		$this->level = $level;
 		$this->message = $message;
@@ -34,6 +36,9 @@ class LogCall {
 		return $this->message;
 	}
 
+	/**
+	 * @return array<string, mixed>
+	 */
 	public function getContext(): array {
 		return $this->context;
 	}

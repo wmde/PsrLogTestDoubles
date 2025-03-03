@@ -22,6 +22,9 @@ class LogCalls implements IteratorAggregate, \Countable {
 		$this->calls = $calls;
 	}
 
+	/**
+	 * @return \ArrayIterator<int,LogCall>
+	 */
 	public function getIterator(): \ArrayIterator {
 		return new \ArrayIterator( $this->calls );
 	}

@@ -12,9 +12,6 @@ use WMDE\PsrLogTestDoubles\LogCalls;
 /**
  * @covers \WMDE\PsrLogTestDoubles\LogCalls
  * @covers \WMDE\PsrLogTestDoubles\LogCall
- *
- * @license GNU GPL v2+
- * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class LogCallsTest extends TestCase {
 
@@ -60,9 +57,11 @@ class LogCallsTest extends TestCase {
 			new LogCall( LogLevel::ALERT, "There's a hole in your mind" )
 		);
 
-		$this->assertSame( LogLevel::INFO, $logCalls->getFirstCall()->getLevel() );
-		$this->assertSame( 'And so it begins', $logCalls->getFirstCall()->getMessage() );
-		$this->assertSame( [ 'year' => 2258 ], $logCalls->getFirstCall()->getContext() );
+		$firstCall = $logCalls->getFirstCall();
+		$this->assertNotNull( $firstCall );
+		$this->assertSame( LogLevel::INFO, $firstCall->getLevel() );
+		$this->assertSame( 'And so it begins', $firstCall->getMessage() );
+		$this->assertSame( [ 'year' => 2258 ], $firstCall->getContext() );
 	}
 
 	public function testImplementsCountable(): void {
@@ -81,9 +80,11 @@ class LogCallsTest extends TestCase {
 			new LogCall( LogLevel::ALERT, "There's a hole in your mind" )
 		);
 
+		$lastCall = $logCalls->getLastCall();
+		$this->assertNotNull( $lastCall );
 		$this->assertSame(
 			"There's a hole in your mind",
-			$logCalls->getLastCall()->getMessage()
+			$lastCall->getMessage()
 		);
 	}
 
