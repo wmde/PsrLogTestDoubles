@@ -58,6 +58,7 @@ class LogCallsTest extends TestCase {
 		);
 
 		$firstCall = $logCalls->getFirstCall();
+
 		$this->assertNotNull( $firstCall );
 		$this->assertSame( LogLevel::INFO, $firstCall->getLevel() );
 		$this->assertSame( 'And so it begins', $firstCall->getMessage() );
@@ -81,11 +82,9 @@ class LogCallsTest extends TestCase {
 		);
 
 		$lastCall = $logCalls->getLastCall();
+
 		$this->assertNotNull( $lastCall );
-		$this->assertSame(
-			"There's a hole in your mind",
-			$lastCall->getMessage()
-		);
+		$this->assertSame( "There's a hole in your mind", $lastCall->getMessage() );
 	}
 
 	public function testWhenThereAreNoLogCalls_getLastCallReturnsNull(): void {

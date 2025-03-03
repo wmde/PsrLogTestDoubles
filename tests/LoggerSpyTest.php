@@ -66,7 +66,7 @@ class LoggerSpyTest extends TestCase {
 		$loggerSpy->assertNoLoggingCallsWhereMade();
 	}
 
-		public function testWhenThereAreNoLogCalls_getFirstLogCallReturnsNull(): void {
+	public function testWhenThereAreNoLogCalls_getFirstLogCallReturnsNull(): void {
 		$this->assertNull( ( new LoggerSpy() )->getFirstLogCall() );
 	}
 
@@ -77,6 +77,7 @@ class LoggerSpyTest extends TestCase {
 		$loggerSpy->alert( "There's a hole in your mind" );
 
 		$firstLogCall = $loggerSpy->getFirstLogCall();
+
 		$this->assertNotNull( $firstLogCall );
 		$this->assertSame( LogLevel::INFO, $firstLogCall->getLevel() );
 		$this->assertSame( 'And so it begins', $firstLogCall->getMessage() );
