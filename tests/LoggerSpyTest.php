@@ -13,9 +13,6 @@ use WMDE\PsrLogTestDoubles\LoggerSpy;
 
 /**
  * @covers \WMDE\PsrLogTestDoubles\LoggerSpy
- *
- * @license GNU GPL v2+
- * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class LoggerSpyTest extends TestCase {
 
@@ -67,11 +64,9 @@ class LoggerSpyTest extends TestCase {
 		$loggerSpy = new LoggerSpy();
 
 		$loggerSpy->assertNoLoggingCallsWhereMade();
-
-		$this->assertTrue( true );
 	}
 
-	public function testWhenThereAreNoLogCalls_getFirstLogCallReturnsNull() {
+	public function testWhenThereAreNoLogCalls_getFirstLogCallReturnsNull(): void {
 		$this->assertNull( ( new LoggerSpy() )->getFirstLogCall() );
 	}
 
@@ -81,9 +76,12 @@ class LoggerSpyTest extends TestCase {
 		$loggerSpy->info( 'And so it begins', [ 'year' => 2258 ] );
 		$loggerSpy->alert( "There's a hole in your mind" );
 
-		$this->assertSame( LogLevel::INFO, $loggerSpy->getFirstLogCall()->getLevel() );
-		$this->assertSame( 'And so it begins', $loggerSpy->getFirstLogCall()->getMessage() );
-		$this->assertSame( [ 'year' => 2258 ], $loggerSpy->getFirstLogCall()->getContext() );
+		$firstLogCall = $loggerSpy->getFirstLogCall();
+
+		$this->assertNotNull( $firstLogCall );
+		$this->assertSame( LogLevel::INFO, $firstLogCall->getLevel() );
+		$this->assertSame( 'And so it begins', $firstLogCall->getMessage() );
+		$this->assertSame( [ 'year' => 2258 ], $firstLogCall->getContext() );
 	}
 
 }
