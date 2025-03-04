@@ -4,6 +4,7 @@ declare( strict_types = 1 );
 
 namespace WMDE\PsrLogTestDoubles\Tests;
 
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 use Psr\Log\LogLevel;
 use WMDE\PsrLogTestDoubles\LogCall;
@@ -13,6 +14,8 @@ use WMDE\PsrLogTestDoubles\LogCalls;
  * @covers \WMDE\PsrLogTestDoubles\LogCalls
  * @covers \WMDE\PsrLogTestDoubles\LogCall
  */
+#[CoversClass( LogCalls::class)]
+#[CoversClass( LogCall::class)]
 class LogCallsTest extends TestCase {
 
 	public function testWhenThereAreNoLogCalls_getMessagesReturnsEmptyArray(): void {
