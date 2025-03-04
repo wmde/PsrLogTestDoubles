@@ -25,10 +25,10 @@ jobs:
           tools: composer, cs2pr
           coverage: pcov
 
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Cache Composer cache
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: ~/.composer/cache
           key: composer-cache-php${{ matrix.php }}
@@ -71,10 +71,10 @@ jobs:
           extensions: mbstring
           tools: composer, cs2pr
 
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Cache Composer cache
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: ~/.composer/cache
           key: "composer-cache-php${{ matrix.php }}"
