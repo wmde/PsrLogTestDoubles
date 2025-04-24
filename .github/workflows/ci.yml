@@ -9,9 +9,9 @@ jobs:
     name: "PHPUnit PHP ${{ matrix.php }}"
     strategy:
       matrix:
-        php: [ '8.2', '8.3' ]
+        php: [ '8.3', '8.4' ]
         include:
-          - php: '8.3'
+          - php: '8.4'
             coverage: true
 
     runs-on: ubuntu-latest
