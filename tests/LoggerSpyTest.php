@@ -4,6 +4,8 @@ declare( strict_types = 1 );
 
 namespace WMDE\PsrLogTestDoubles\Tests;
 
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DoesNotPerformAssertions;
 use PHPUnit\Framework\TestCase;
 use Psr\Log\LogLevel;
 use WMDE\PsrLogTestDoubles\AssertionException;
@@ -14,6 +16,9 @@ use WMDE\PsrLogTestDoubles\LoggerSpy;
 /**
  * @covers \WMDE\PsrLogTestDoubles\LoggerSpy
  */
+#[CoversClass( LoggerSpy::class )]
+#[CoversClass( LogCall::class )]
+#[CoversClass( LogCalls::class)]
 class LoggerSpyTest extends TestCase {
 
 	public function testWhenNothingIsLogged_getLogCallsReturnsEmptyArray(): void {
@@ -60,6 +65,7 @@ class LoggerSpyTest extends TestCase {
 		$loggerSpy->assertNoLoggingCallsWhereMade();
 	}
 
+	#[DoesNotPerformAssertions]
 	public function testWhenLoggerWasNotCalled_assertNoCallsDoesNotThrowException(): void {
 		$loggerSpy = new LoggerSpy();
 
