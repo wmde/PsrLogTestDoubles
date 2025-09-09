@@ -1,6 +1,6 @@
 # PSR Log Test Doubles
 
-[![Build Status](https://img.shields.io/github/workflow/status/wmde/PsrLogTestDoubles/CI)](https://github.com/wmde/PsrLogTestDoubles/actions?query=workflow%3ACI)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/wmde/PsrLogTestDoubles/ci.yml?branch=main)](https://img.shields.io/github/actions/workflow/status/wmde/PsrLogTestDoubles/ci.yml?branch=main)
 [![codecov](https://codecov.io/gh/wmde/PsrLogTestDoubles/branch/master/graph/badge.svg)](https://codecov.io/gh/wmde/PsrLogTestDoubles)
 [![Type Coverage](https://shepherd.dev/github/wmde/PsrLogTestDoubles/coverage.svg)](https://shepherd.dev/github/wmde/PsrLogTestDoubles)
 [![Latest Stable Version](https://poser.pugx.org/wmde/psr-log-test-doubles/version.png)](https://packagist.org/packages/wmde/psr-log-test-doubles)
